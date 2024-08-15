@@ -170,7 +170,7 @@ void calibrateAir() {
   writeRegister(28, 0);
   writeRegister(29, 0);
   writeRegister(2, 144);
-  writeRegister(3, 1);
+  writeRegister(3, 0);
   writeRegister(4, 232);
   writeRegister(5, 3);
   writeRegister(6, 61);
