@@ -69,7 +69,7 @@ Watch the device in action, credits to Vlad.
 - ESP8266 pinout reference\
 ![ESP8266 Pinout](image/esp8266_pinout.png)
 - RP2040 reference
-> (TODO: RP2040 pinout reference)
+> TODO: Add RP2040 pinout reference
 
 5. Flash the firmware using the Arduino IDE.
-   > TODO: Upload example sketch and instructions
+> TODO: Add sketch programming instructions
