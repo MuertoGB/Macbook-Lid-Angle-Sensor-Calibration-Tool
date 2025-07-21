@@ -1,33 +1,75 @@
-# Macbook-Lid-Angle-Sensor-Calibration-Tool
-This tool can be used to calibrate the new lid angle sensor on the macbook A2141 A2442 A2485 A2779 A2780 A2681.
-# Operating modes
-The programmer has 3 operating modes, the modes are switched by a short push of a button and switched in a circle. You can tell which mode is currently selected by the blinking of the LED (1, 2 and 3, respectively). Each of the modes is activated by pressing the button for a long time (1 second).
+# MacBook Lid Angle Sensor Calibration Tool
 
-In the mode 1, calibration is performed for the PRO series macbooks (A2141, A2442, A2485, A2779, A2780), if the calibration was successfully recorded, the LED will light up for 3 seconds.
+This project builds on [Vladislav's work](https://github.com/Vladislav98759/Macbook-Lid-Angle-Sensor-Calibration-Tool).
 
-In the mode 2, calibration is performed for the AIR series macbooks (A2681), if the calibration record was completed successfully, the LED will light up for 3 seconds.
+It allows calibration of the lid angle sensor found in newer MacBook models:
 
-In mode 3, the function of recognizing the current angle is activated (if the lid is open, the LED lights up, closed - goes out).
+- **Pro series**: A2141, A2442, A2485, A2779, A2780  
+- **Air series**: A2681  
 
-Before recording in modes 1 and 2, the tool makes checks for the possibility of flashing, if the sensor is not connected, the LED will blink 3 times, if a sensor removed from another device (calibrated by Apple) is connected, it will blink 6 times.
+> ⚠️ **Note:** This project is a work in progress. Raspberry Pi Pico support is coming soon.
 
-Demonstration of the device operation:
-https://www.youtube.com/watch?v=4y4Nq-6QuaA
-# Required for assembly
+## 🔧 Operating Modes
 
-I used a controller NodeMCU v3 (ESP8266) use any controller with an spi interface that you have. 
+The programmer has **three operating modes**, selected by **short button presses**. The current mode is indicated by the number of LED blinks (1, 2, or 3).
+To **activate** a mode, press and hold the button for **1 second**.
 
+### Mode 1 – Pro Series Calibration
+Calibrates Pro MacBooks (A2141, A2442, A2485, A2779, A2780).
+If calibration is successful, the LED stays lit for 3 seconds.
 
-Connectors:
+### Mode 2 – Air Series Calibration
+Calibrates MacBook Air (A2681).  
+If calibration is successful, the LED stays lit for 3 seconds.
 
-503548-1220 molex - for Pro models
+### Mode 3 – Angle Detection
+Activates real-time angle detection:
+- **Lid open** → LED **on**
+- **Lid closed** → LED **off**
 
-BM28P0.6-10DS-0.35V Hirose - For air models, also installed on iphone 11 (J_SIM_K)
+#### Flashing Checks (Modes 1 & 2)
+Before recording calibration data:
+- **No sensor detected** → LED blinks **3 times**
+- **Sensor from another (Apple-calibrated) device** → LED blinks **6 times**
 
-As a connector board, I used a piece of the motherboard from the macbook A2141
+## 🎥 Demonstration
+Watch the device in action, credits to Vlad.
 
-![NodeMCU pinout](https://github.com/Vladislav98759/Macbook-Lid-Angle-Sensor-Calibration-Tool/assets/33593193/6550a118-871b-4d62-8de6-cfd9e4de9bab)
+[![YouTube Demo](https://img.youtube.com/vi/4y4Nq-6QuaA/0.jpg)](https://www.youtube.com/watch?v=4y4Nq-6QuaA)
 
-![Connectors pinout](https://github.com/Vladislav98759/Macbook-Lid-Angle-Sensor-Calibration-Tool/assets/33593193/dc2e7380-8eec-4fec-9e8c-6d418c56af62)
+## 🧰 Required for Assembly
 
-![IMG_0431](https://github.com/Vladislav98759/Macbook-Lid-Angle-Sensor-Calibration-Tool/assets/33593193/05c358fa-7ced-46c6-9795-95fb02d9ed8f)
+### Hardware
+- **NodeMCU v1-3 (ESP8266)**
+- **Raspberry Pi Pico (RP2040)**
+- A connector board (e.g., cut-off piece of a MacBook A2141 motherboard)
+  - A sub-board design for Pi Pico to attach is planned and will be added here
+- **Connectors:**
+  - `503548-1220 Molex` – for Pro models
+  - `BM28P0.6-10DS-0.35V Hirose` – for Air models (also used in iPhone 11 as J_SIM_K)
+
+### Software
+- **Arduino IDE**
+- Board support packages:
+  - ESP8266 support
+  - RP2040 (Raspberry Pi Pico) support
+> (TODO: Add links)
+
+## 🔌 Wiring & Connections
+
+1. Connect the A2141 cut-off board using the Air connector as shown (or as needed).
+   ![A2141 Connectors](image/a2141_connectors.jpg)
+
+2. Hijack the **J5100 RSVD** pin to use for **CS (Chip Select)**.
+   ![A2141 Jumper](image/a2141_jumper.png)
+
+3. Connect your hardware to the test points.
+   ![Testpoint Pinout](image/tp_pinout.png)
+
+- ESP8266 pinout reference\
+![ESP8266 Pinout](image/esp8266_pinout.png)
+- RP2040 reference
+> (TODO: RP2040 pinout reference)
+
+5. Flash the firmware using the Arduino IDE.
+   > TODO: Upload example sketch and instructions

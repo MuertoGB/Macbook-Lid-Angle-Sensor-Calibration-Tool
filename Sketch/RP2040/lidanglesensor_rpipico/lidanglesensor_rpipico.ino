@@ -1,7 +1,7 @@
 #include <SPI.h>
-#define CS_PIN D8 // Replace with the pin number to which CS is connected
-#define BUTTON_PIN 0 // Replace with the pin number to which button is connected
-#define LED_BUILTIN 2 // Replace with the pin number to which led is connected
+#define CS_PIN 17 // Replace with the pin number to which CS is connected
+#define BUTTON_PIN 15 // Replace with the pin number to which button is connected
+
 String inputString = ""; // String for storing incoming data
 bool stringComplete = false;  // Flag for completion of reading
 int mode = 0;
@@ -204,8 +204,7 @@ float angle(){
   digitalWrite(CS_PIN, LOW);
   angle = SPI.transfer16(0); // Reading the angle
   digitalWrite(CS_PIN, HIGH);
-
-  float angleInDegrees = map(angle, 0, UINT16_MAX, 0, 360); // Conversion from uint16_t format to degrees
+  float angleInDegrees = ((float)angle / UINT16_MAX) * 360.0; // Conversion from uint16_t format to degrees
 
   Serial.print("Current sensor angle position: ");
   Serial.println(angleInDegrees); // Output of the angle in degrees
@@ -241,6 +240,7 @@ void checkAngle() {
     }
   }
 }
+
 // Function for reading data from the console
 void serialEvent() {
   while (Serial.available()) {
@@ -309,7 +309,6 @@ void writeRegister(int registerAddress, int registerValue) {
      }
    }
 }
-
 
 // Function to set the current value as zero
 void zeroAngle() {
@@ -381,8 +380,6 @@ void zeroAngle() {
 
    Serial.println("Zero value set");
 }
-
-
 
 //Function to write all registers to NVM
 void storeAllRegToNVM() {
