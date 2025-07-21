@@ -1,6 +1,6 @@
 #include <SPI.h>
 #define CS_PIN 17 // Replace with the pin number to which CS is connected
-#define BUTTON_PIN 15 // Replace with the pin number to which button is connected
+#define USR_BUTTON 24 // Replace with the pin number to which button is connected
 
 String inputString = ""; // String for storing incoming data
 bool stringComplete = false;  // Flag for completion of reading
@@ -14,12 +14,12 @@ void setup() {
   pinMode(CS_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(USR_BUTTON, INPUT_PULLUP);
   inputString.reserve(200);
 }
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
-  int buttonState = digitalRead(BUTTON_PIN);
+  int buttonState = digitalRead(USR_BUTTON);
 
   if (buttonState == LOW) {
     if (buttonPressTime == 0) {
@@ -48,7 +48,7 @@ void loop() {
       } else if (mode == 2) {
         checkFlash();
       } else if (mode == 3) {
-        while (digitalRead(BUTTON_PIN) == HIGH) {
+        while (digitalRead(USR_BUTTON) == HIGH) {
           sensorPosition();
         }
       }

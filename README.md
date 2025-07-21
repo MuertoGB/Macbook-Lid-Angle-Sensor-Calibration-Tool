@@ -41,7 +41,7 @@ Watch the device in action, credits to Vlad.
 
 ### Hardware
 - **NodeMCU v1-3 (ESP8266)**
-- **Raspberry Pi Pico (RP2040)**
+- **Raspberry Pi Pico (DollaTek RP2040 with USR button)**
 - A connector board (e.g., cut-off piece of a MacBook A2141 motherboard)
   - A sub-board design for Pi Pico to attach is planned and will be added here
 - **Connectors:**
