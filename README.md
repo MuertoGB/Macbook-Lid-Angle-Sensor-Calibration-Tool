@@ -7,7 +7,7 @@ It allows calibration of the lid angle sensor found in newer MacBook models:
 - **Pro series**: A2141, A2442, A2485, A2779, A2780  
 - **Air series**: A2681  
 
-> ⚠️ **Note:** This project is a work in progress. Raspberry Pi Pico support is coming soon.
+> ⚠️ **Note:** This project is a work in progress. Raspberry Pi Pico support is coming soon. Some information may currently be inaccurate while stuff is tested and improved.
 
 ## 🔧 Operating Modes
 
@@ -68,7 +68,7 @@ Watch the device in action, credits to Vlad.
 
 - ESP8266 pinout reference\
 ![ESP8266 Pinout](image/esp8266_pinout.png)
-- RP2040 reference
+- RP2040 pinout reference
 > TODO: Add RP2040 pinout reference
 
 5. Flash the firmware using the Arduino IDE.
