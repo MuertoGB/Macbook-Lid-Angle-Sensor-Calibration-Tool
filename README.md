@@ -15,11 +15,11 @@ The programmer has **three operating modes**, selected by **short button presses
 To **activate** a mode, press and hold the button for **1 second**.
 
 ### Mode 1 – Pro Series Calibration
-Calibrates Pro MacBooks (A2141, A2442, A2485, A2779, A2780).
+Calibrates Pro MacBooks (A2141, A2442, A2485, A2779, A2780).\
 If calibration is successful, the LED stays lit for 3 seconds.
 
 ### Mode 2 – Air Series Calibration
-Calibrates MacBook Air (A2681).  
+Calibrates MacBook Air (A2681).\
 If calibration is successful, the LED stays lit for 3 seconds.
 
 ### Mode 3 – Angle Detection
