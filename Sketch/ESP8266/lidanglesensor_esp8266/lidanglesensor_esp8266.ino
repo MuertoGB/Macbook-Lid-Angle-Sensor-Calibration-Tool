@@ -1,27 +1,23 @@
 #include <SPI.h>
-#define CS_PIN 17 // Replace with the pin number to which CS is connected
-#define BUTTON_PIN 15 // Replace with the pin number to which button is connected
-#define LED_BUILTIN 25 // Replace with the pin number to which led is connected
+#define CS_PIN D8 // Replace with the pin number to which CS is connected
+#define BUTTON_PIN 0 // Replace with the pin number to which button is connected
+#define LED_BUILTIN 2 // Replace with the pin number to which led is connected
 String inputString = ""; // String for storing incoming data
 bool stringComplete = false;  // Flag for completion of reading
 int mode = 0;
 unsigned long buttonPressTime = 0;
 bool buttonReleased = true;
 
-// Define SPI pins for the Raspberry Pi Pico.
-constexpr uint8_t SPI_SCK = 18; // Clock.
-constexpr uint8_t SPI_MISO = 16; // Master In, Slave Out.
-constexpr uint8_t SPI_MOSI = 19; // Master Out, Sleave In. 
-
 void setup() {
   Serial.begin(9600);
-  SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI);
+  SPI.begin();
   pinMode(CS_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   inputString.reserve(200);
 }
+
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
   int buttonState = digitalRead(BUTTON_PIN);
