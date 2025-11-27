@@ -1,3 +1,5 @@
+This project is now end of life, and shall receive no more updates by the developer. Issues will no longer be responded to. Apologies development was never completed. Feel free to fork and continue the development if you desire.
+
 # MacBook Lid Angle Sensor Calibration Tool
 
 This project builds on [Vladislav's work](https://github.com/Vladislav98759/Macbook-Lid-Angle-Sensor-Calibration-Tool).
@@ -65,11 +67,3 @@ Watch the device in action, credits to Vlad.
 
 3. Connect your hardware to the test points.
    ![Testpoint Pinout](image/tp_pinout.png)
-
-- ESP8266 pinout reference\
-![ESP8266 Pinout](image/esp8266_pinout.png)
-- RP2040 pinout reference
-> TODO: Add RP2040 pinout reference
-
-5. Flash the firmware using the Arduino IDE.
-> TODO: Add sketch programming instructions
